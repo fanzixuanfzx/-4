@@ -381,9 +381,9 @@ a:hover {
     url("../uploads/web04.png");
   background-repeat: no-repeat;
   background-position:
-    0 0, 243px 0, 243px 120px, 486px 120px, 729px 120px, 972px 120px;
+    0 0, 100% 0, 25% 120px, 50% 120px, 75% 120px, 100% 120px;
   background-size:
-    228px 386px, 957px 100px, 228px 156px, 228px 156px, 228px 156px, 228px 156px;
+    19% 386px, 79.75% 100px, 19% 156px, 19% 156px, 19% 156px, 19% 156px;
   box-shadow: var(--shadow);
   transition: box-shadow 220ms ease, transform 220ms ease;
 }
