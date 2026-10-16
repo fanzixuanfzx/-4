@@ -1,0 +1,648 @@
+:root {
+  color-scheme: light;
+  --ink: #182230;
+  --muted: #788391;
+  --blue: #1768e8;
+  --cyan: #23b7c9;
+  --surface: #fff;
+  --page: #f5f8fc;
+  --line: #e8edf4;
+  --shadow: 0 12px 32px rgb(32 55 85 / 8%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background: var(--page);
+  color: var(--ink);
+  font-family: "Microsoft Yahei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+a:hover {
+  color: var(--blue);
+}
+
+.wrapper {
+  width: min(1200px, calc(100% - 48px));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Header */
+.header {
+  position: relative;
+  z-index: 2;
+  height: 88px;
+  background: rgb(255 255 255 / 96%);
+  border-bottom: 1px solid rgb(230 236 244 / 80%);
+  box-shadow: 0 4px 18px rgb(27 48 75 / 4%);
+}
+
+.header .wrapper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 34px;
+}
+
+.logo {
+  flex: 0 0 128px;
+  height: 62px;
+  background: url("../images/logo.png") left center / contain no-repeat;
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+}
+
+.nav::before {
+  color: #364253;
+  content: "首页\00a0\00a0\00a0课程\00a0\00a0\00a0学习路线\00a0\00a0\00a0讲师团队";
+  font-size: 15px;
+  font-weight: 600;
+  white-space: pre;
+}
+
+.search {
+  position: relative;
+  flex: 0 1 238px;
+  height: 40px;
+  border: 1px solid #e4eaf2;
+  border-radius: 22px;
+  background: #f7f9fc;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.search:hover,
+.search:focus-within {
+  border-color: #a8c8fb;
+  box-shadow: 0 0 0 4px rgb(23 104 232 / 8%);
+}
+
+.search::before {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  color: #a1aab6;
+  content: "搜索课程、老师";
+  font-size: 12px;
+  transform: translateY(-50%);
+}
+
+.search::after {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 16px;
+  height: 16px;
+  background: url("../images/search.png") center / contain no-repeat;
+  content: "";
+  transform: translateY(-50%);
+}
+
+.user {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+  color: #536174;
+  font-size: 13px;
+}
+
+.user::before {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #edf3fb;
+  border-radius: 50%;
+  background: url("../uploads/user.png") center / cover no-repeat;
+  content: "";
+  transition: transform 180ms ease;
+}
+
+.user::after {
+  content: "登录 / 注册";
+}
+
+.user:hover::before {
+  transform: scale(1.08);
+}
+
+/* Hero */
+.banner {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  background: #078fbe url("../uploads/banner.png") center / cover no-repeat;
+}
+
+.banner .wrapper {
+  display: flex;
+  min-height: 420px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.banner .left {
+  width: 190px;
+  min-height: 322px;
+  flex: 0 0 190px;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 16px;
+  background: rgb(19 43 80 / 36%) url("../uploads/web_left.png") center / cover no-repeat;
+  box-shadow: 0 18px 44px rgb(0 41 88 / 20%);
+  backdrop-filter: blur(8px);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.banner .left:hover {
+  box-shadow: 0 24px 54px rgb(0 41 88 / 32%);
+  transform: translateY(-5px);
+}
+
+.banner .right {
+  width: 260px;
+  min-height: 292px;
+  flex: 0 0 260px;
+  padding: 22px 22px 18px;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 18px;
+  background: rgb(255 255 255 / 95%);
+  box-shadow: 0 20px 52px rgb(14 44 79 / 20%);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.banner .right:hover {
+  box-shadow: 0 26px 62px rgb(14 44 79 / 28%);
+  transform: translateY(-4px);
+}
+
+.banner .right h3 {
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.banner .right .content {
+  position: relative;
+  min-height: 175px;
+  padding-top: 14px;
+}
+
+.banner .right .content::before {
+  display: block;
+  color: #647184;
+  content: "今日学习计划\A Vue 项目实战          12 课时\A JavaScript 进阶       8 课时\A UI 设计基础             6 课时";
+  font-size: 12px;
+  line-height: 2.9;
+  white-space: pre;
+}
+
+.banner .right .content a {
+  display: block;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #edf5ff;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.banner .right .content a:hover {
+  background: var(--blue);
+  box-shadow: 0 7px 16px rgb(23 104 232 / 22%);
+  color: #fff;
+}
+
+/* Recommendations */
+.recommend {
+  display: flex;
+  min-height: 86px;
+  align-items: center;
+  gap: 22px;
+  margin-top: 26px;
+  padding: 0 26px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 6px 22px rgb(32 55 85 / 4%);
+}
+
+.recommend h3 {
+  flex: 0 0 auto;
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.recommend::before {
+  overflow: hidden;
+  flex: 1;
+  color: #4f6075;
+  content: "人工智能　　 前端开发　　 数据分析　　 产品设计　　 云计算";
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: pre;
+}
+
+.recommend .modify {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border: 1px solid #d9e7fb;
+  border-radius: 8px;
+  color: var(--blue);
+  font-size: 12px;
+}
+
+.recommend .modify:hover {
+  border-color: var(--blue);
+  background: #f1f7ff;
+}
+
+/* Featured courses */
+.course {
+  margin-top: 38px;
+}
+
+.course .hd {
+  display: flex;
+  min-height: 47px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.course .hd::before {
+  color: var(--ink);
+  content: "精品课程";
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.course .hd::after {
+  padding-top: 7px;
+  color: var(--muted);
+  content: "从入门到进阶，找到适合你的成长路径";
+  font-size: 12px;
+}
+
+.course .bd {
+  position: relative;
+  display: flex;
+  min-height: 230px;
+  align-items: flex-end;
+  gap: 15px;
+  padding-top: 170px;
+  background-image:
+    url("../uploads/course01.png"),
+    url("../uploads/course02.png"),
+    url("../uploads/course03.png"),
+    url("../uploads/course04.png"),
+    url("../uploads/course05.png"),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff);
+  background-repeat: no-repeat;
+  background-position:
+    0 0, 243px 0, 486px 0, 729px 0, 972px 0,
+    0 0, 243px 0, 486px 0, 729px 0, 972px 0;
+  background-size:
+    228px 156px, 228px 156px, 228px 156px, 228px 156px, 228px 156px,
+    228px 230px, 228px 230px, 228px 230px, 228px 230px, 228px 230px;
+}
+
+.course .bd::before {
+  position: absolute;
+  top: 166px;
+  left: 0;
+  width: 100%;
+  color: #697789;
+  content: "JavaScript 看板实战　　Vue 企业项目　　Python 数据分析　　Java 核心进阶　　全栈开发实战";
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: left;
+  white-space: pre;
+}
+
+.course .bd:hover {
+  filter: drop-shadow(0 8px 12px rgb(32 55 85 / 8%));
+}
+
+/* Subject courses */
+.course + .wrapper {
+  margin-top: 46px;
+  margin-bottom: 52px;
+}
+
+.course + .wrapper .hd {
+  display: flex;
+  min-height: 62px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.course + .wrapper .hd h3 {
+  position: relative;
+  padding-left: 14px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.course + .wrapper .hd h3::before {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  width: 4px;
+  border-radius: 3px;
+  background: linear-gradient(var(--blue), var(--cyan));
+  content: "";
+}
+
+.course + .wrapper .hd .more {
+  margin-top: 7px;
+  color: #738093;
+  font-size: 13px;
+}
+
+.course + .wrapper .hd .more::after {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 7px;
+  background: url("../images/more.png") center / contain no-repeat;
+  content: "";
+}
+
+.course + .wrapper .hd .more:hover {
+  color: var(--blue);
+}
+
+.course + .wrapper .bd {
+  min-height: 386px;
+  border-radius: 14px;
+  background-color: #fff;
+  background-image:
+    url("../uploads/web_left.png"),
+    url("../uploads/web_top.png"),
+    url("../uploads/web01.png"),
+    url("../uploads/web02.png"),
+    url("../uploads/web03.png"),
+    url("../uploads/web04.png");
+  background-repeat: no-repeat;
+  background-position:
+    0 0, 243px 0, 243px 120px, 486px 120px, 729px 120px, 972px 120px;
+  background-size:
+    228px 386px, 957px 100px, 228px 156px, 228px 156px, 228px 156px, 228px 156px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+
+.course + .wrapper .bd:hover {
+  box-shadow: 0 18px 42px rgb(32 55 85 / 12%);
+  transform: translateY(-3px);
+}
+
+/* Footer */
+.rights {
+  padding: 34px 0;
+  border-top: 1px solid #e7edf5;
+  background: #fff;
+}
+
+.rights .wrapper {
+  display: flex;
+  min-height: 74px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.rights .left::before {
+  color: #526176;
+  content: "在线学堂 · 让学习成就更好的你";
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.rights .right::before {
+  color: #9aa4b1;
+  content: "© 2025 在线学堂　|　关于我们　|　服务协议　|　隐私政策";
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .header .wrapper {
+    gap: 20px;
+  }
+
+  .nav::before {
+    content: "首页\00a0\00a0\00a0课程\00a0\00a0\00a0路线";
+  }
+
+  .banner .wrapper {
+    gap: 14px;
+  }
+
+  .banner .left {
+    width: 160px;
+    flex-basis: 160px;
+  }
+
+  .banner .right {
+    width: 230px;
+    flex-basis: 230px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .course .bd {
+    min-height: 205px;
+    background-size:
+      19% 130px, 19% 130px, 19% 130px, 19% 130px, 19% 130px,
+      19% 205px, 19% 205px, 19% 205px, 19% 205px, 19% 205px;
+  }
+
+  .course .bd::before {
+    top: 140px;
+    overflow: hidden;
+    font-size: 10px;
+    text-overflow: ellipsis;
+  }
+
+  .course + .wrapper .bd {
+    background-size:
+      19% 386px, 79.75% 100px, 19% 140px, 19% 140px, 19% 140px, 19% 140px;
+    background-position:
+      0 0, 20.25% 0, 20.25% 120px, 40.5% 120px, 60.75% 120px, 81% 120px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    width: calc(100% - 32px);
+  }
+
+  .header {
+    height: 72px;
+  }
+
+  .header .wrapper {
+    gap: 14px;
+  }
+
+  .logo {
+    flex-basis: 96px;
+    height: 52px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .search {
+    margin-left: auto;
+  }
+
+  .user {
+    gap: 0;
+  }
+
+  .user::before {
+    width: 32px;
+    height: 32px;
+  }
+
+  .user::after {
+    display: none;
+  }
+
+  .banner {
+    min-height: 380px;
+    background-size: auto 380px;
+  }
+
+  .banner .wrapper {
+    min-height: 380px;
+    justify-content: flex-end;
+  }
+
+  .banner .left {
+    display: none;
+  }
+
+  .banner .right {
+    width: min(260px, 100%);
+    min-height: 276px;
+    flex-basis: min(260px, 100%);
+  }
+
+  .recommend {
+    min-height: 74px;
+    gap: 12px;
+    margin-top: 16px;
+    padding: 0 14px;
+  }
+
+  .recommend h3 {
+    font-size: 15px;
+  }
+
+  .recommend::before {
+    content: "前端　AI　数据";
+    font-size: 12px;
+  }
+
+  .recommend .modify {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .course {
+    margin-top: 28px;
+  }
+
+  .course .hd::before,
+  .course + .wrapper .hd h3 {
+    font-size: 19px;
+  }
+
+  .course .hd::after {
+    display: none;
+  }
+
+  .course .bd {
+    min-height: 190px;
+    overflow: hidden;
+    padding-top: 145px;
+    background-size:
+      31% 120px, 31% 120px, 31% 120px, 31% 120px, 31% 120px,
+      31% 190px, 31% 190px, 31% 190px, 31% 190px, 31% 190px;
+    background-position:
+      0 0, 34.5% 0, 69% 0, 103.5% 0, 138% 0,
+      0 0, 34.5% 0, 69% 0, 103.5% 0, 138% 0;
+  }
+
+  .course .bd::before {
+    top: 127px;
+    width: 210%;
+    font-size: 10px;
+    text-align: left;
+  }
+
+  .course + .wrapper {
+    margin-top: 34px;
+    margin-bottom: 32px;
+  }
+
+  .course + .wrapper .bd {
+    min-height: 300px;
+    overflow: hidden;
+    background-size:
+      31% 300px, 103.5% 78px, 31% 120px, 31% 120px, 31% 120px, 31% 120px;
+    background-position:
+      0 0, 34.5% 0, 34.5% 92px, 69% 92px, 103.5% 92px, 138% 92px;
+  }
+
+  .rights {
+    padding: 24px 0;
+  }
+
+  .rights .wrapper {
+    min-height: 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .rights .right::before {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
