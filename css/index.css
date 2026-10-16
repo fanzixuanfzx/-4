@@ -304,6 +304,7 @@ a:hover {
 .course .bd {
   position: relative;
   width: 100%;
+  min-height: 156px;
   aspect-ratio: 1200 / 156;
   background-image:
     url("../uploads/course01.png"),
@@ -554,7 +555,6 @@ a:hover {
 
   .course .bd {
     height: calc((100vw - 32px) * 0.31 * 0.6842);
-    min-height: 0;
     overflow: hidden;
     background-size: 31% auto;
     background-position: 0 0, 50% 0, 100% 0, 150% 0, 200% 0;
