@@ -303,46 +303,18 @@ a:hover {
 
 .course .bd {
   position: relative;
-  display: flex;
-  min-height: 230px;
-  align-items: flex-end;
-  gap: 15px;
-  padding-top: 170px;
+  width: 100%;
+  aspect-ratio: 1200 / 156;
   background-image:
     url("../uploads/course01.png"),
     url("../uploads/course02.png"),
     url("../uploads/course03.png"),
     url("../uploads/course04.png"),
-    url("../uploads/course05.png"),
-    linear-gradient(#fff, #fff),
-    linear-gradient(#fff, #fff),
-    linear-gradient(#fff, #fff),
-    linear-gradient(#fff, #fff),
-    linear-gradient(#fff, #fff);
+    url("../uploads/course05.png");
   background-repeat: no-repeat;
   background-position:
-    0 0, 243px 0, 486px 0, 729px 0, 972px 0,
     0 0, 243px 0, 486px 0, 729px 0, 972px 0;
-  background-size:
-    228px 156px, 228px 156px, 228px 156px, 228px 156px, 228px 156px,
-    228px 230px, 228px 230px, 228px 230px, 228px 230px, 228px 230px;
-}
-
-.course .bd::before {
-  position: absolute;
-  top: 166px;
-  left: 0;
-  width: 100%;
-  color: #697789;
-  content: "JavaScript 看板实战　　Vue 企业项目　　Python 数据分析　　Java 核心进阶　　全栈开发实战";
-  font-size: 12px;
-  line-height: 1.8;
-  text-align: left;
-  white-space: pre;
-}
-
-.course .bd:hover {
-  filter: drop-shadow(0 8px 12px rgb(32 55 85 / 8%));
+  background-size: 228px 156px;
 }
 
 /* Subject courses */
@@ -475,17 +447,8 @@ a:hover {
   }
 
   .course .bd {
-    min-height: 205px;
-    background-size:
-      19% 130px, 19% 130px, 19% 130px, 19% 130px, 19% 130px,
-      19% 205px, 19% 205px, 19% 205px, 19% 205px, 19% 205px;
-  }
-
-  .course .bd::before {
-    top: 140px;
-    overflow: hidden;
-    font-size: 10px;
-    text-overflow: ellipsis;
+    background-position: 0 0, 25% 0, 50% 0, 75% 0, 100% 0;
+    background-size: 19% auto;
   }
 
   .course + .wrapper .bd {
@@ -590,22 +553,11 @@ a:hover {
   }
 
   .course .bd {
-    min-height: 190px;
+    height: calc((100vw - 32px) * 0.31 * 0.6842);
+    min-height: 0;
     overflow: hidden;
-    padding-top: 145px;
-    background-size:
-      31% 120px, 31% 120px, 31% 120px, 31% 120px, 31% 120px,
-      31% 190px, 31% 190px, 31% 190px, 31% 190px, 31% 190px;
-    background-position:
-      0 0, 34.5% 0, 69% 0, 103.5% 0, 138% 0,
-      0 0, 34.5% 0, 69% 0, 103.5% 0, 138% 0;
-  }
-
-  .course .bd::before {
-    top: 127px;
-    width: 210%;
-    font-size: 10px;
-    text-align: left;
+    background-size: 31% auto;
+    background-position: 0 0, 50% 0, 100% 0, 150% 0, 200% 0;
   }
 
   .course + .wrapper {
